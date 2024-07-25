@@ -4,7 +4,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 //     comments: string[];
 // }
 const initialState = {
-    comments: []
+    commentsDetails: []
 }
 
 const commentSlice = createSlice({
@@ -12,8 +12,12 @@ const commentSlice = createSlice({
     initialState,
     reducers: {
         addComment: (state, action) => {
-           state.comments.push(action.payload); 
-        }
+           state.commentsDetails = {
+            ...state.commentsDetails,
+            ...action.payload
+           }
+        },
+        
     }
 })
 
